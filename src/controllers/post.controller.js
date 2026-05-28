@@ -41,7 +41,7 @@ async function createPostController(req, res) {
     })
 
     res.status(201).json({
-        mesaage: "Post created sucecessfully",
+        message: "Post created sucecessfully",
         post :post
     })
 
