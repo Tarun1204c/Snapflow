@@ -18,6 +18,10 @@ async function identifyUser(req,res,next){
             message: "user not authorized"
         })
     }
+
+    req.user = decoded
+
+    next()
 }
 
 module.exports = identifyUser

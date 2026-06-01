@@ -22,7 +22,7 @@ async function createPostController(req, res) {
     const post = await postModel.create({
         caption : req.body.caption,
         imgUrl: file.url,
-        user:decoded.id
+        user:req.user.id
 
     })
 
@@ -37,7 +37,7 @@ async function createPostController(req, res) {
 
 async function getPostController(req,res) {
 
-    const userId = 
+    const userId = req.user.id
 
     const posts = await postModel.find({
         user : userId
@@ -53,7 +53,7 @@ async function getPostController(req,res) {
 async function getPostDetails(req, res){
 
 
-    const userId = 
+    const userId = req.user.id
     const postId = req.params.postId
 
     const post = await postModel.findById(postId)
