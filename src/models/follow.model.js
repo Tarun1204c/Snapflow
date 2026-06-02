@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 
 
 const followSchema = new mongoose.Schema({
-    followers :{
+    follower :{
         type : String
     },
-    following : {
+    followee: {
         type : String
     }
 }, { 

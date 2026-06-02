@@ -7,13 +7,13 @@ async function followUserController(req,res) {
     const followeeUsername = req.params.username
 
 
-    const folloRecord = await followModel.create({
-        follower : followerUserNmae,
+    const followRecord = await followModel.create({
+        follower : followerUsername,
         followee : followeeUsername
     })
 
     res.status(201).json({
-        message : `You are not following ${followerUsername}`,
+        message : `You are now following ${followerUsername}`,
         follow : followRecord
     })
 
