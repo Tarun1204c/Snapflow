@@ -21,6 +21,4 @@ userRouter.post("/follow/:username",identifyUser, userController.followUserContr
 userRouter.post("/unfollow/:username", identifyUser,userController.unfollowUserController )
 
 
-
-
 module.exports = userRouter;
