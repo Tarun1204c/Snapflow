@@ -1,16 +1,47 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/form.scss'
 import {Link} from 'react-router'
+import axios from 'axios'
 
 const Register = () => {
+
+    const [username,setUsername] = useState("")
+    const[email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+
+    async function handleSubmit(e){
+        e.preventDefault()
+
+        axios.post("http://localhost:3000/api/auth/register",{
+            username,
+            email,
+            password
+        })
+        .then(res => {
+            console.log(res.data)
+        })
+    }
   return (
     <main>
         <div className="form-container">
             <h1>SnapFlow</h1>
-            <form className='form'>
-                <input type="text" name="username" placeholder="Enter a username"  />
-                <input type="text" name="email" placeholder="Enter a email" />
-                <input  type="text" name="Paasword" placeholder="Enter a username" />
+            <form className='form' onSubmit={handleSubmit}>
+                <input
+                onInput={(e)=>{setUsername(e.target.value)}}
+                 type="text" 
+                 name="username" 
+                 placeholder="Enter a username"  />
+                <input
+                onInput={(e)=>{setEmail(e.target.value)}}
+                type="text" 
+                name="email" 
+                placeholder="Enter a email" />
+                <input  
+                onInput={(e)=> {setPassword(e.target.value)}}
+                type="text" 
+                name="Paasword" 
+                placeholder="Enter a Paasword" />
                 <button type='submit'>Signup</button>
             </form>
             <p>Already have an account? <Link to="/login">Login</Link></p>
