@@ -1,8 +1,12 @@
 import { createContext, useState, useEffect } from "react"; 
-import {login, register, getMe} from '../services/auth.api'
+import {login, register, getMe} from './services/auth.api'
+
+
+
+
 export const AuthContext = createContext()
 
-export function AuthProvider({childer}){
+export function AuthProvider({children}){
 
 
     const [user, setUser] = useState(null)
@@ -27,7 +31,7 @@ export function AuthProvider({childer}){
         setLoading(true)
 
         try{
-            const response = await register[username,email,password]
+            const response = await register(username,email,password)
             setUser(response.data)
         }catch(err){
             console.log(err)
@@ -39,7 +43,7 @@ export function AuthProvider({childer}){
 
     return(
         <AuthContext.Provider value={{user, loading, handleLogin, handleRegister}}>
-            {childern}
+            {children}
 
         </AuthContext.Provider>
     )
