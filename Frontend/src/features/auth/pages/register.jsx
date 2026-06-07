@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import '../styles/form.scss'
 import {Link} from 'react-router'
 import axios from 'axios'
+import { useAuth } from '../hooks/use.auth'
+import { register } from '../services/auth.api'
 
 const Register = () => {
 

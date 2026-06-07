@@ -16,12 +16,12 @@ export async function register(username, email,password){
         return response.data
 
     }catch(err){
-
+        throw err
     }
  }
 
 
-export async function login(email, password){
+export async function login(username, password){
     try{
         const response = await api.post("/login", {
             username,
@@ -31,6 +31,8 @@ export async function login(email, password){
         return response.data
 
     }catch(err){
+        throw err
+
 
     }
 }

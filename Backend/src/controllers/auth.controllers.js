@@ -95,7 +95,7 @@ async function loginController(req,res) {
     res.status(200).json({
         message:"User loggedIn suceesfully",
         user:{
-            username: user.userName,
+            username: user.username,
             email: user.email,
             bio : user.bio,
             profileImage: user.profileImage

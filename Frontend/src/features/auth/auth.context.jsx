@@ -13,11 +13,11 @@ export function AuthProvider({children}){
     const [loading, setLoading] = useState(false)
 
 
-    const handleLogin = async (email , password) => {
+    const handleLogin = async (username , password) => {
 
         setLoading(true)
         try{
-            const response = await login(email,password)
+            const response = await login(username,password)
             setUser(response.user)
         }catch(err){
             console.log(err)
@@ -32,7 +32,7 @@ export function AuthProvider({children}){
 
         try{
             const response = await register(username,email,password)
-            setUser(response.data)
+            setUser(response.user)
         }catch(err){
             console.log(err)
         }

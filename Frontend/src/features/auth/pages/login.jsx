@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import '../styles/form.scss'
 import {Link} from 'react-router'
 import axios from 'axios'
+import { useAuth } from '../hooks/use.auth'
 
 const Login = () => {
 
@@ -9,8 +10,16 @@ const Login = () => {
   const [password, setPassword] = useState("")
 
 
+  const {handleLogin} = useAuth()
+
+
   function handleSubmit(e){
     e.preventDefault()
+
+    handleLogin(username, password)
+    .then(res=>{
+      console.log(res)
+    })
   }
   return (
     <main>
@@ -37,3 +46,6 @@ const Login = () => {
 }
 
 export default Login
+
+
+
