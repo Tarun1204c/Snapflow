@@ -17,7 +17,7 @@ export function AuthProvider({children}){
 
         setLoading(true)
         try{
-            const response = await login(username,password)
+            const response = await login(username , password)
             setUser(response.user)
         }catch(err){
             console.log(err)
@@ -44,7 +44,6 @@ export function AuthProvider({children}){
     return(
         <AuthContext.Provider value={{user, loading, handleLogin, handleRegister}}>
             {children}
-
         </AuthContext.Provider>
     )
 
