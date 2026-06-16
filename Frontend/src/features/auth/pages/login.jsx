@@ -3,6 +3,7 @@ import '../styles/form.scss'
 import {Link} from 'react-router'
 import axios from 'axios'
 import { useAuth } from '../hooks/use.auth'
+import {useNavigate} from 'react-router'
 
 const Login = () => {
 
@@ -10,7 +11,15 @@ const Login = () => {
   const [password, setPassword] = useState("")
 
 
-  const {handleLogin} = useAuth()
+  const {handleLogin, loading} = useAuth()
+  const navigate = useNavigate()
+
+  if(loading){
+    return (
+      <h1>Loading...</h1>
+    )
+
+  }
 
 
   function handleSubmit(e){
@@ -19,6 +28,7 @@ const Login = () => {
     handleLogin(username, password)
     .then(res=>{
       console.log(res)
+      navigate("/")
     })
   }
   return (
