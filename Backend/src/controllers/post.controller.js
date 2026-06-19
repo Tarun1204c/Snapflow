@@ -1,3 +1,4 @@
+const User = require('../models/user.model');
 const postModel = require('../models/post.model')
 const ImageKit = require("@imagekit/nodejs")
 const {toFile} = require('@imagekit/nodejs')
@@ -103,9 +104,22 @@ async function likePostController(req,res){
 
 }
 
+
+async function getFeedController(req,res) {
+    const posts = await postModel.find().populate("user")
+
+
+    res.status(200).json({
+        message:"post fetched sucessfully",
+        posts
+    })
+}
+
+
 module.exports = {
     createPostController,
     getPostController,
     getPostDetails,
-    likePostController
+    likePostController,
+    getFeedController
 }
