@@ -5,7 +5,6 @@ const Feed = () => {
     <main className = 'feed-page' >
       <div classNmae="feed">
         <div className='posts'>
-          <Post/>
         </div>
       </div>
     </main>
