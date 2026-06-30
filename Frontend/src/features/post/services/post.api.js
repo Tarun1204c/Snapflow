@@ -7,4 +7,5 @@ const api = axios.create({
 
 export async function getFeed(){
     const response = await api.get('/posts/')
+
 }
