@@ -1,9 +1,6 @@
 import { createContext, useState, useEffect } from "react"; 
 import {login, register, getMe} from './services/auth.api'
 
-
-
-
 export const AuthContext = createContext()
 
 export function AuthProvider({children}){
@@ -18,7 +15,9 @@ export function AuthProvider({children}){
         setLoading(true)
         try{
             const response = await login(username , password)
+            console.log("Login response:", response)
             setUser(response.user)
+            return response
         }catch(err){
             console.log(err)
         }

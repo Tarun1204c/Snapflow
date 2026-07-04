@@ -6,9 +6,9 @@ const Post = ({user, post}) => {
         <div className="post">
             <div className="user">
               <div className="img-wranpper">
-               <img src={user.profileImage} alt='' />
+               <img src={user?.profileImage} alt='' />
               </div> 
-              <p>{user.username}</p>
+              <p>{user?.username}</p>
             </div>
             <img src={post.imgUrl} alt=''/>
             <div className="icons">

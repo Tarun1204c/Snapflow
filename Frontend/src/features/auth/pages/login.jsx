@@ -14,21 +14,15 @@ const Login = () => {
   const {handleLogin, loading} = useAuth()
   const navigate = useNavigate()
 
-  if(loading){
-    return (
-      <h1>Loading...</h1>
-    )
-
-  }
-
-
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault()
 
-    handleLogin(username, password)
+    const res = await handleLogin(username, password)
     .then(res=>{
-      console.log(res)
-      navigate("/")
+      console.log("navigating:", res)
+      if(res){
+         navigate("/")
+      }
     })
   }
   return (

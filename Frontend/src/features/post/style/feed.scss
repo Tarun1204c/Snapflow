@@ -2,13 +2,17 @@
     display:flex;
     justify-content: center;
     align-items: flex-start;
+    background-color: black;
 
     .feed{
         max-width: 500px;
         width: 100%;
 
-        .post{
+        .posts{
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
         }
 
         .post{
