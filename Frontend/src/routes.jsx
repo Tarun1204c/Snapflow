@@ -4,6 +4,7 @@ import Register from './features/auth/pages/register'
 import Feed from './features/post/pages/Feed'
 import { AuthProvider } from "./features/auth/auth.context"
 import { PostContextProvider } from "./features/post/post.context"
+import CreatePost from "./features/post/pages/CreatePost"
 
 const Layout = ({children}) => (
     <AuthProvider>
@@ -25,5 +26,9 @@ export const routes = createBrowserRouter([
     {
         path: '/register',
         element: <Layout><Register /></Layout>
+    },
+    {
+        path:"/create-post",
+        element: <Layout><CreatePost/></Layout>
     }
 ])

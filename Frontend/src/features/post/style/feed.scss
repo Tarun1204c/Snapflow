@@ -1,8 +1,9 @@
 .feed-page{
     display:flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     background-color: black;
+    flex-direction: column;
 
     .feed{
         max-width: 500px;
@@ -53,6 +54,10 @@
                     display: flex;
                     gap: 0.75rem;
                 }
+
+                .like{
+                    color : red;
+                }
                 svg{
                     width: 1rem;
                     aspect-ratio: 1/1;
@@ -63,7 +68,6 @@
                     border: none;
                     outline: none;
                 }
-
             }
 
             img{
